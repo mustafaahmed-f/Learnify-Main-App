@@ -10,7 +10,7 @@
     "learnify-admin-dashboard": {
       "development": {
         "local": "3001",
-        "fallback": "https://learnify-admin-dashboard-tau.vercel.app"
+        "fallback": "https://learnify-admin-dashboard-two.vercel.app"
       },
       "routing": [
         {
