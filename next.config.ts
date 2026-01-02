@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
         destination:
           process.env.ENVIRONMENT === "dev"
             ? `http://localhost:3001/:path*`
-            : `https://learnify-admin-dashboard-tau.vercel.app/:path*`,
+            : `https://learnify-admin-dashboard-two.vercel.app/:path*`,
       },
     ];
   },
