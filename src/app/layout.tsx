@@ -5,6 +5,7 @@ import {
 } from "@vercel/microfrontends/next/client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Providers from "@/_providers/Providers";
 
 // export const fetchCache = "default-cache";
 
@@ -36,13 +37,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <header>this is a header from main</header>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <PrefetchCrossZoneLinksProvider>
-          {children}
-        </PrefetchCrossZoneLinksProvider>
-        <PrefetchCrossZoneLinks />
+        <Providers>
+          <PrefetchCrossZoneLinksProvider>
+            {children}
+          </PrefetchCrossZoneLinksProvider>
+          <PrefetchCrossZoneLinks />
+        </Providers>
       </body>
     </html>
   );
