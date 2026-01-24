@@ -6,6 +6,8 @@ import {
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "@/_providers/Providers";
+import Header from "@/_components/Header/Header";
+import Footer from "@/_components/Footer/Footer";
 
 // export const fetchCache = "default-cache";
 
@@ -37,15 +39,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <header>this is a header from main</header>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Providers>
+          <Header />
           <PrefetchCrossZoneLinksProvider>
-            {children}
+            <main className="grow flex flex-col">{children}</main>
           </PrefetchCrossZoneLinksProvider>
           <PrefetchCrossZoneLinks />
+          <Footer />
         </Providers>
       </body>
     </html>
