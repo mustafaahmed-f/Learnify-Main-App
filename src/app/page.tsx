@@ -1,9 +1,5 @@
-import Image from "next/image";
+import LandingPage from "@/_features/Landing/LandingPage";
 
 export default function Home() {
-  return (
-    <section className="font-sans  grow bg-yellow-600  py-5 items-center justify-items-center">
-      <h1 className="sr-only">Home Page</h1>
-    </section>
-  );
+  return <LandingPage />;
 }
