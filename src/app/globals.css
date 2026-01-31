@@ -252,3 +252,7 @@
     @apply sm:px-6 md:px-10;
   }
 }
+
+.landing-page > div:nth-child(even) {
+  padding-block: 80px;
+}

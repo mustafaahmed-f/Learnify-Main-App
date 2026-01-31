@@ -3,7 +3,7 @@ import SingleMetric from "./SingleMetric";
 
 function MetricsSection() {
   return (
-    <div className="px-8 py-20">
+    <div className="px-8">
       <h2 className="mb-6 text-center text-3xl font-bold">Our success</h2>
       <p className="mx-auto max-w-1/2 text-center text-sm max-sm:max-w-3/4">
         Ornare id fames interdum porttitor nulla turpis etiam. Diam vitae
