@@ -5,10 +5,10 @@ import { getLandingSectionTagIDs } from "../../_utils/getLandingSectionTagIDs";
 function BriefSection() {
   return (
     <div
-      className="w-full h-full flex items-start justify-center flex-col gap-6"
+      className="flex h-full w-full flex-col items-start justify-center gap-6"
       id={getLandingSectionTagIDs(`HeroSection-BriefSection`)}
     >
-      <h2 className="font-bold text-5xl text-white leading-tight">
+      <h2 className="text-5xl leading-tight font-bold text-white">
         <span className="text-orange-400">Studying</span> Online now is much
         easier
       </h2>
@@ -16,15 +16,15 @@ function BriefSection() {
         Learnify is an interesting platform that will teach you in more an
         interactive way
       </p>
-      <div className="flex items-center gap-5 max-sm:flex-col max-sm:justify-center w-full">
-        <Button className="rounded-full cursor-pointer text-white bg-secondary-foreground px-8 py-5">
+      <div className="flex w-full items-center gap-5 max-sm:flex-col max-sm:justify-center">
+        <Button className="bg-secondary-foreground cursor-pointer rounded-full px-8 py-5 text-white">
           Join For Free
         </Button>
-        <div className="flex items-center  gap-5  cursor-pointer hover:text-white text-black">
-          <div className="rounded-full bg-white w-10 h-10 flex items-center justify-center">
+        <div className="flex cursor-pointer items-center gap-5 text-black hover:text-white">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
             <PlayIcon />
           </div>
-          <p className="text-base ">Watch how it works</p>
+          <p className="text-base">Watch how it works</p>
         </div>
       </div>
     </div>

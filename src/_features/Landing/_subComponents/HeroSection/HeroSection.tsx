@@ -2,9 +2,7 @@ import { getLandingSectionTagIDs } from "../../_utils/getLandingSectionTagIDs";
 import BriefSection from "./BriefSection";
 import SectionImg from "./SectionImg";
 
-interface HeroSectionProps {}
-
-function HeroSection({}: HeroSectionProps) {
+function HeroSection() {
   return (
     <div className="relative">
       <div
