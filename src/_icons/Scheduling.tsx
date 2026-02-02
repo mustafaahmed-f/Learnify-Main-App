@@ -12,7 +12,7 @@ function Scheduling({}: SchedulingProps) {
       <g filter="url(#filter0_d_10_916)">
         <circle cx="90" cy="74" r="50" fill="#00CBB8" />
       </g>
-      <g clip-path="url(#clip0_10_916)">
+      <g clipPath="url(#clip0_10_916)">
         <path
           d="M78.0005 50C77.0536 50 76.2861 50.7675 76.2861 51.7143V55.1429H79.7147V51.7143C79.7147 50.7675 78.9472 50 78.0005 50Z"
           fill="#F5F5FC"
@@ -70,9 +70,9 @@ function Scheduling({}: SchedulingProps) {
           width="180"
           height="180"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

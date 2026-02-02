@@ -11,6 +11,15 @@ const nextConfig: NextConfig = {
   },
 
   transpilePackages: ["@learnify/ui"],
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
   async rewrites() {
     return [
       {
