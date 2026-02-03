@@ -254,4 +254,12 @@ div.features-wrapper > div.feature:nth-child(even) {
   flex-direction: row-reverse;
 }
 
+.testimonial::before {
+  content: "";
+
+  height: 2px;
+  width: 40px;
+  background-color: #525596;
+}
+
 /* =========================== */
