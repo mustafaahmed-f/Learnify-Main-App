@@ -1,3 +1,4 @@
+import { getLandingSectionTagIDs } from "../../_utils/getLandingSectionTagIDs";
 import { ServicesOfPlatform } from "../../_utils/ServicesOfPlatform";
 import SingleService from "./SingleService";
 
@@ -5,7 +6,7 @@ interface AllInOneSectionProps {}
 
 function AllInOneSection({}: AllInOneSectionProps) {
   return (
-    <div className="px-8">
+    <div className="px-8" id={getLandingSectionTagIDs(`AllInOneSection`)}>
       <h2 className="text-prefix mb-6 text-center text-2xl font-bold">
         All-In-One <span className="text-suffix">Cloud Software.</span>
       </h2>

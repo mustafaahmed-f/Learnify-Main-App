@@ -1,9 +1,10 @@
+import { getLandingSectionTagIDs } from "../../_utils/getLandingSectionTagIDs";
 import { metricsData } from "../../_utils/MetricsData";
 import SingleMetric from "./SingleMetric";
 
 function MetricsSection() {
   return (
-    <div className="px-8">
+    <div className="px-8" id={getLandingSectionTagIDs(`MetricsSection`)}>
       <h2 className="mb-6 text-center text-3xl font-bold">Our success</h2>
       <p className="mx-auto max-w-1/2 text-center text-sm max-sm:max-w-3/4">
         Ornare id fames interdum porttitor nulla turpis etiam. Diam vitae

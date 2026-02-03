@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { AvailableMemberShipsData } from "../../_utils/AvailableMemberShips";
 import AvailableMemberShips from "./AvailableMemberShips";
+import { getLandingSectionTagIDs } from "../../_utils/getLandingSectionTagIDs";
 
 interface AboutPlatformSectionProps {}
 
 function AboutPlatformSection({}: AboutPlatformSectionProps) {
   return (
-    <div className="px-8">
+    <div className="px-8" id={getLandingSectionTagIDs(`AboutPlatformSection`)}>
       <h2 className="text-prefix mb-6 text-center text-2xl font-bold">
         What is <span className="text-suffix">Learnify ?</span>
       </h2>

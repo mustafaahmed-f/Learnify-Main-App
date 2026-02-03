@@ -244,6 +244,14 @@
   }
 }
 
+/** Landing page */
+
 .landing-page > div:nth-child(even) {
   padding-block: 80px;
 }
+
+div.features-wrapper > div.feature:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* =========================== */

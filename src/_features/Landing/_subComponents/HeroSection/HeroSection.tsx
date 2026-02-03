@@ -4,11 +4,8 @@ import SectionImg from "./SectionImg";
 
 function HeroSection() {
   return (
-    <div className="relative">
-      <div
-        className="paddings-1 bg-primary grid w-full grid-cols-1 px-14 pt-6 pb-28 max-sm:pt-20 sm:grid-cols-2 sm:pb-0"
-        id={getLandingSectionTagIDs(`HeroSection`)}
-      >
+    <div className="relative" id={getLandingSectionTagIDs(`HeroSection`)}>
+      <div className="paddings-1 bg-primary grid w-full grid-cols-1 px-14 pt-6 pb-28 max-sm:pt-20 sm:grid-cols-2 sm:pb-0">
         <BriefSection />
         <SectionImg />
       </div>
