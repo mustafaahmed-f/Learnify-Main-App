@@ -1,10 +1,11 @@
 import { Button } from "@/_components/ui/button";
 import Image from "next/image";
+import { getLandingSectionTagIDs } from "../../_utils/getLandingSectionTagIDs";
 
 function MainReviewsSection() {
   return (
-    <div className="px-8">
-      <div className="flex flex-nowrap items-center justify-center gap-y-10 px-4 sm:flex-wrap sm:gap-x-16 sm:px-10 md:gap-x-30 md:px-14 lg:px-20">
+    <div className="px-8" id={getLandingSectionTagIDs(`MainReviewsSection`)}>
+      <div className="flex flex-wrap items-center justify-center gap-y-10 px-4 sm:gap-x-16 sm:px-10 md:flex-nowrap md:gap-x-30 md:px-14 lg:px-20">
         <div className="flex flex-col gap-6">
           <p className="testimonial flex items-center gap-2 text-xs">
             TESTIMONIAL

@@ -5,6 +5,7 @@ import AllInOneSection from "./_subComponents/AllInOne/AllInOneSection";
 import AboutPlatformSection from "./_subComponents/AboutPlatform/AboutPlatformSection";
 import FeaturesSection from "./_subComponents/Features/FeaturesSection";
 import MainReviewsSection from "./_subComponents/MainReviews/MainReviewsSection";
+import NewsAndResoursesSection from "./_subComponents/NewsAndResourses/NewsAndResoursesSection";
 
 function LandingPage() {
   return (
@@ -16,6 +17,7 @@ function LandingPage() {
         <AboutPlatformSection />
         <FeaturesSection />
         <MainReviewsSection />
+        <NewsAndResoursesSection />
       </div>
     </PageWrapper>
   );
