@@ -11,6 +11,8 @@
     "commit": "node --loader ts-node/esm scripts/generate-commit.ts"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.37.3",
+    "@clerk/themes": "^2.4.51",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-slot": "^1.2.3",
     "@tanstack/react-query": "^5.90.17",

@@ -8,6 +8,8 @@ import "./globals.css";
 import Providers from "@/_providers/Providers";
 import Header from "@/_components/Header/Header";
 import Footer from "@/_components/Footer/Footer";
+import { ClerkProvider } from "@clerk/nextjs";
+import { shadcn } from "@clerk/themes";
 
 // export const fetchCache = "default-cache";
 
@@ -38,21 +40,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
-      >
-        <Providers>
-          <Header />
-          <PrefetchCrossZoneLinksProvider>
-            <main className="grow flex flex-col bg-background min-h-full">
-              {children}
-            </main>
-          </PrefetchCrossZoneLinksProvider>
-          <PrefetchCrossZoneLinks />
-          <Footer />
-        </Providers>
-      </body>
-    </html>
+    <ClerkProvider
+      appearance={{ baseTheme: shadcn }}
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    >
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
+        >
+          <Providers>
+            <Header />
+            <PrefetchCrossZoneLinksProvider>
+              <main className="bg-background flex min-h-full grow flex-col">
+                {children}
+              </main>
+            </PrefetchCrossZoneLinksProvider>
+            <PrefetchCrossZoneLinks />
+            <Footer />
+          </Providers>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
