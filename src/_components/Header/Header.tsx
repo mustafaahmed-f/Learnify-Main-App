@@ -1,20 +1,29 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { Button } from "../ui/button";
-import LearnifyLogo from "../general/LearnifyLogo";
-import { GraduationCap } from "lucide-react";
 import { SignedIn, SignedOut, UserProfile } from "@clerk/nextjs";
+import { GraduationCap } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import LearnifyLogo from "../general/LearnifyLogo";
+import { Button } from "../ui/button";
+import { HeaderElements } from "./HeaderElements";
 
 interface HeaderProps {}
 
 function Header({}: HeaderProps) {
   const { 0: open, 1: setOpen } = useState(false);
 
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768) {
+        setOpen(false);
+      }
+    });
+  }, []);
+
   return (
     <header>
-      <nav className="relative flex items-center justify-between border-b border-gray-300 bg-white px-6 py-4 transition-all md:px-16 lg:px-24 xl:px-32">
+      <nav className="flex items-center justify-between border-b border-gray-300 bg-white px-6 py-4 transition-all md:px-16 lg:px-24 xl:px-32">
         <Link href="/" className="text-2xl font-bold">
           <LearnifyLogo />
         </Link>
@@ -23,7 +32,7 @@ function Header({}: HeaderProps) {
           aria-label="Menu"
           id="menu-toggle"
           onClick={() => setOpen(!open)}
-          className="md:hidden"
+          className="cursor-pointer md:hidden"
         >
           <svg
             width="21"
@@ -47,50 +56,56 @@ function Header({}: HeaderProps) {
 
         <div
           id="mobile-menu"
-          className={`absolute top-[60px] left-0 ${open ? "flex" : "hidden"} w-full flex-col items-start gap-2 bg-white px-5 py-4 text-sm shadow-md md:hidden`}
+          className={`fixed top-0 right-0 left-0 z-50 transform bg-white px-4 py-4 md:hidden ${open ? "translate-y-0" : "-translate-y-full"} w-full flex-col items-start gap-2 bg-white px-5 py-4 text-sm shadow-md transition-transform duration-700 ease-in-out`}
         >
-          <Link href="#" className="block">
-            Courses
-          </Link>
-          <Link href="#" className="block">
-            Blog
-          </Link>
-          <Link href="#" className="block">
-            About us
-          </Link>
+          <div className="mb-5 flex w-full items-center justify-end">
+            <Button
+              className="cursor-pointer bg-transparent text-2xl font-bold text-black hover:bg-transparent"
+              onClick={() => setOpen(false)}
+            >
+              X
+            </Button>
+          </div>
+          {HeaderElements.map((el) => (
+            <Link
+              key={el.id}
+              href={el.href}
+              className="hover:text-primary my-1 block"
+            >
+              {el.label}
+            </Link>
+          ))}
 
-          <SignedIn>
-            <div className="my-1 flex items-center justify-start gap-8">
-              <div className="relative cursor-pointer">
-                <GraduationCap />
-                <button className="absolute -top-2 -right-3 h-[18px] w-[18px] rounded-full bg-indigo-500 text-xs text-white">
-                  3
-                </button>
+          <div className="mt-4">
+            <SignedIn>
+              <div className="my-1 flex items-center justify-start gap-8">
+                <div className="relative cursor-pointer">
+                  <GraduationCap />
+                  <button className="absolute -top-2 -right-3 h-[18px] w-[18px] rounded-full bg-indigo-500 text-xs text-white">
+                    3
+                  </button>
+                </div>
+                <UserProfile />
               </div>
-              <UserProfile />
-            </div>
-            <button className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition">
-              Logout
-            </button>
-          </SignedIn>
+              <button className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition">
+                Logout
+              </button>
+            </SignedIn>
 
-          <SignedOut>
-            <button className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition">
-              Login
-            </button>
-          </SignedOut>
+            <SignedOut>
+              <button className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition">
+                Login
+              </button>
+            </SignedOut>
+          </div>
         </div>
 
         <div className="hidden items-center gap-8 md:flex">
-          <Link href="#" className="hover:text-primary">
-            Courses
-          </Link>
-          <Link href="#" className="hover:text-primary">
-            Blog
-          </Link>
-          <Link href="#" className="hover:text-primary">
-            About us
-          </Link>
+          {HeaderElements.map((el) => (
+            <Link key={el.id} href={el.href} className="hover:text-primary">
+              {el.label}
+            </Link>
+          ))}
 
           <div className="hidden items-center gap-2 rounded-full border border-gray-300 px-3 text-sm lg:flex">
             <input

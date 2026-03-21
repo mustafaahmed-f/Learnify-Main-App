@@ -262,6 +262,7 @@ div.features-wrapper > div.feature:nth-child(even) {
   background-color: #525596;
 }
 
+/* =========================== */
 /** Loader */
 
 /* HTML: <div class="loader"></div> */
@@ -292,5 +293,3 @@ div.features-wrapper > div.feature:nth-child(even) {
     transform: rotate(1turn);
   }
 }
-
-/* =========================== */
