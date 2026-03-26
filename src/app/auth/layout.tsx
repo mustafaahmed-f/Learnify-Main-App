@@ -1,10 +1,11 @@
-interface AuthLayoutProps {}
+import AuthLayoutWrapper from "@/_features/Auth/_subComponents/AuthLayoutWrapper";
 
-//* These are images for login and signup pages
-// https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop
-// https://images.unsplash.com/photo-1503676260728-1c00da094a0b
-function AuthLayout({}: AuthLayoutProps) {
-  return <div></div>;
+interface AuthLayoutProps {
+  children: React.ReactNode;
+}
+
+function AuthLayout({ children }: AuthLayoutProps) {
+  return <AuthLayoutWrapper>{children}</AuthLayoutWrapper>;
 }
 
 export default AuthLayout;
