@@ -1,25 +1,26 @@
-import type { Metadata } from "next";
+import Footer from "@/_components/Footer/Footer";
+import Header from "@/_components/Header/Header";
+import Providers from "@/_providers/Providers";
+import { ClerkProvider } from "@clerk/nextjs";
+import { shadcn } from "@clerk/themes";
 import {
   PrefetchCrossZoneLinks,
   PrefetchCrossZoneLinksProvider,
 } from "@vercel/microfrontends/next/client";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
-import Providers from "@/_providers/Providers";
-import Header from "@/_components/Header/Header";
-import Footer from "@/_components/Footer/Footer";
-import { ClerkProvider } from "@clerk/nextjs";
-import { shadcn } from "@clerk/themes";
 
 // export const fetchCache = "default-cache";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manrope = Manrope({
+  variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"], // match your design system
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -46,7 +47,7 @@ export default function RootLayout({
     >
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
+          className={`${manrope.variable} ${inter.variable} flex min-h-screen flex-col font-sans antialiased`}
         >
           <Providers>
             <PrefetchCrossZoneLinksProvider>
