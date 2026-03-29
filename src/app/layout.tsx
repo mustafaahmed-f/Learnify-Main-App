@@ -49,14 +49,14 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
         >
           <Providers>
-            <Header />
             <PrefetchCrossZoneLinksProvider>
+              <Header />
               <main className="bg-background flex min-h-full grow flex-col">
                 {children}
               </main>
+              <Footer />
             </PrefetchCrossZoneLinksProvider>
             <PrefetchCrossZoneLinks />
-            <Footer />
           </Providers>
         </body>
       </html>

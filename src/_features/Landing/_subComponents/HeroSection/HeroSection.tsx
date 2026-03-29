@@ -19,7 +19,7 @@ function HeroSection() {
         >
           <path
             d="M0,64 C240,120 480,120 720,96 960,72 1200,24 1440,16 L1440,120 L0,120 Z"
-            fill="#ffffff"
+            fill="oklch(0.96 0.015 260)"
           />
         </svg>
       </div>

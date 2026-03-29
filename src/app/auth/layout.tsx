@@ -1,11 +1,11 @@
-import AuthLayoutWrapper from "@/_features/Auth/_subComponents/AuthLayoutWrapper";
+import AuthLayout from "@/_components/Layouts/AuthLayout";
 
-interface AuthLayoutProps {
+interface LayoutProps {
   children: React.ReactNode;
 }
 
-function AuthLayout({ children }: AuthLayoutProps) {
-  return <AuthLayoutWrapper>{children}</AuthLayoutWrapper>;
+function Layout({ children }: LayoutProps) {
+  return <AuthLayout>{children}</AuthLayout>;
 }
 
-export default AuthLayout;
+export default Layout;

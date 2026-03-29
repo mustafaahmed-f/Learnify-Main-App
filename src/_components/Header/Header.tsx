@@ -23,7 +23,7 @@ function Header({}: HeaderProps) {
 
   return (
     <header>
-      <nav className="flex items-center justify-between border-b border-gray-300 bg-white px-6 py-4 transition-all md:px-16 lg:px-24 xl:px-32">
+      <nav className="bg-background flex items-center justify-between border-b border-gray-300 px-6 py-4 transition-all md:px-16 lg:px-24 xl:px-32">
         <Link href="/" className="text-2xl font-bold">
           <LearnifyLogo />
         </Link>

@@ -4,229 +4,245 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* =========================
+     🎨 CORE COLORS (ShadCN)
+     ========================= */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-highlight: var(--highlight);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
+
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* =========================
+     🚀 YOUR CUSTOM COLORS
+     ========================= */
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-surface-section: var(--surface-section);
+  --color-surface-card-muted: var(--surface-card-muted);
 
   --color-prefix: var(--text-prefix);
   --color-suffix: var(--text-suffix);
 
-  --color-green-eclipse: var(--green-eclipse);
+  /* =========================
+     📊 CHARTS
+     ========================= */
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* =========================
+     🧭 SIDEBAR
+     ========================= */
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+
+  --color-sidebar-border: var(--sidebar-border)
+    --color-sidebar-ring: var(--sidebar-ring);
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.5rem;
+
+  /* =========================
+     KEEP: CHARTS + SIDEBAR
+     ========================= */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: oklch(0.62 0.14 240);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* * My app variables */
-  /* * Used for Buttons - Active tabs - Progress bars - Icons - Badges - Prices */
-  --brand: oklch(0.73 0.13 190); /* main teal */
-  --brand-foreground: oklch(0.99 0 0);
-  --brand-muted: oklch(0.94 0.04 190);
+  /* =========================
+     🎨 LEARNIFY COLORS
+     ========================= */
 
-  --brand-dark: oklch(0.23 0.05 260);
-  --brand-dark-foreground: oklch(0.98 0 0);
-  /* * SURFACES */
-  /* * Used for Page backgrounds */
-  --surface-page: oklch(100% 0.00011 271.152);
-  --surface-section: oklch(98.816% 0.00674 234.225);
-  /* * Cards */
-  --surface-card: oklch(1 0 0);
-  --surface-card-muted: oklch(0.98 0.01 230);
-  /* * STATUS / CONTEXT COLORS (lesson blocks, tags, highlights) */
-  /* * From lesson lists & info blocks */
-  --info: oklch(0.92 0.04 230);
-  --success: oklch(0.93 0.08 160);
-  --warning: oklch(0.95 0.1 80);
-  --danger: oklch(0.94 0.08 30);
-  /* * TEXT COLORS (very consistent across pages)  */
-  --text-primary: oklch(0.22 0 0);
+  /* Primary */
+  --primary: oklch(0.62 0.14 240); /* #3498DB */
+  --primary-foreground: oklch(0.98 0 0);
+
+  /* Surfaces */
+  --background: oklch(0.98 0.01 260); /* #F7F9FF */
+  --surface-section: oklch(0.96 0.015 260); /* #EEF4FF */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0 0);
+
+  --popover: var(--card);
+  --popover-foreground: var(--card-foreground);
+
+  /* Text */
+  --foreground: oklch(0.2 0 0);
+  --text-primary: var(--foreground);
   --text-secondary: oklch(0.45 0 0);
-  --text-muted: oklch(0.65 0 0);
-  --text-inverse: oklch(0.98 0 0);
-  --text-prefix: #2f327d;
-  --text-suffix: #00cbb8;
-  /* * BORDERS / DIVIDERS */
-  --border-subtle: oklch(0.9 0 0);
-  --border-default: oklch(0.86 0 0);
+  --text-muted: oklch(0.6 0 0);
+  --text-prefix: #006397;
+  --text-suffix: #3498db;
 
-  /* * Merging shadnc variables with app's variables */
-
-  /* Core */
-  --background: var(--surface-page);
-  --foreground: var(--text-primary);
-
-  --card: var(--surface-card);
-  --card-foreground: var(--text-primary);
-
-  --popover: var(--surface-card);
-  --popover-foreground: var(--text-primary);
-
-  /* Brand-driven */
-  --primary: var(--brand);
-  --primary-foreground: var(--brand-foreground);
-
-  --secondary: var(--brand-muted);
-  --secondary-foreground: var(--text-primary);
-
-  --accent: var(--info);
-  --accent-foreground: var(--text-primary);
-
-  /* Utility */
-  --muted: var(--surface-card-muted);
-  --muted-foreground: var(--text-muted);
-
-  --border: var(--border-default);
-  --input: var(--border-default);
-  --ring: var(--brand);
+  /* Borders */
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: var(--primary);
 
   /* Status */
-  --destructive: var(--danger);
+  --success: oklch(0.7 0.16 150);
+  --warning: oklch(0.8 0.16 80);
+  --destructive: oklch(0.65 0.2 20);
 
-  --green-eclipse: #33efa0;
+  /* Accent */
+  --accent: oklch(0.75 0.17 50);
+  --accent-foreground: oklch(0.15 0 0);
+
+  /* Secondary */
+  --secondary: var(--surface-section);
+  --secondary-foreground: var(--foreground);
+
+  /* Muted */
+  --muted: oklch(0.97 0.01 260);
+  --muted-foreground: var(--text-muted);
+
+  /* Extra */
+  --surface-card-muted: oklch(0.97 0.01 260);
 }
 
 .dark {
-  /* --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0); */
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* =========================
+     🎨 CORE SURFACES
+     ========================= */
 
-  /* * My app variables */
-  /* * Used for Buttons - Active tabs - Progress bars - Icons - Badges - Prices */
-  --brand: oklch(0.7 0.14 190);
-  --brand-foreground: oklch(0.15 0 0);
-  --brand-muted: oklch(0.32 0.06 190);
-  --highlight: #f48c06 --brand-dark: oklch(0.18 0.02 260);
-  --brand-dark-foreground: oklch(0.98 0 0);
-  /* * SURFACES */
-  /* * Used for Page backgrounds */
-  --surface-page: oklch(0.16 0 0);
+  --background: oklch(0.17 0 0);
   --surface-section: oklch(0.2 0 0);
-  /* * Cards */
-  --surface-card: oklch(0.22 0 0);
+
+  --card: oklch(0.22 0 0);
   --surface-card-muted: oklch(0.26 0 0);
-  /* * STATUS / CONTEXT COLORS (lesson blocks, tags, highlights) */
-  /* * From lesson lists & info blocks */
-  --info: oklch(0.3 0.05 230);
-  --success: oklch(0.32 0.09 160);
-  --warning: oklch(0.34 0.1 80);
-  --danger: oklch(0.35 0.09 30);
-  /* * TEXT COLORS (very consistent across pages)  */
-  --text-primary: oklch(0.98 0 0);
-  --text-secondary: oklch(0.78 0 0);
-  --text-muted: oklch(0.62 0 0);
-  --text-inverse: oklch(0.15 0 0);
-  /* * BORDERS / DIVIDERS */
-  --border-default: oklch(1 0 0 / 12%);
-  --border-subtle: oklch(1 0 0 / 8%);
 
-  /* * Merging shadnc variables with app's variables */
+  --popover: var(--card);
 
-  /* Core */
-  --background: var(--surface-page);
-  --foreground: var(--text-primary);
+  /* =========================
+     📝 TEXT
+     ========================= */
 
-  --card: var(--surface-card);
-  --card-foreground: var(--text-primary);
+  --foreground: oklch(0.95 0 0);
+  --text-primary: var(--foreground);
 
-  --popover: var(--surface-card);
-  --popover-foreground: var(--text-primary);
+  --text-secondary: oklch(0.75 0 0);
+  --text-muted: oklch(0.6 0 0);
 
-  /* Brand-driven */
-  --primary: var(--brand);
-  --primary-foreground: var(--brand-foreground);
+  /* Keep brand feeling readable */
+  --text-prefix: #3498db;
+  --text-suffix: #ff8c42;
 
-  --secondary: var(--brand-muted);
-  --secondary-foreground: var(--text-primary);
+  /* =========================
+     🎯 BRAND (Primary)
+     ========================= */
 
-  --accent: var(--info);
-  --accent-foreground: var(--text-primary);
+  --primary: oklch(0.7 0.14 240); /* brighter for dark */
+  --primary-foreground: oklch(0.1 0 0);
 
-  /* Utility */
-  --muted: var(--surface-card-muted);
-  --muted-foreground: var(--text-muted);
+  /* =========================
+     🧩 SECONDARY / MUTED
+     ========================= */
 
-  --border: var(--border-default);
-  --input: var(--border-default);
-  --ring: var(--brand);
+  --secondary: oklch(0.25 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
 
-  /* Status */
-  --destructive: var(--danger);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+
+  /* =========================
+     🚨 STATUS
+     ========================= */
+
+  --success: oklch(0.55 0.14 150);
+  --warning: oklch(0.7 0.15 80);
+  --destructive: oklch(0.6 0.2 20);
+
+  /* =========================
+     🎨 ACCENT
+     ========================= */
+
+  --accent: oklch(0.7 0.17 50);
+  --accent-foreground: oklch(0.1 0 0);
+
+  /* =========================
+     📏 BORDERS / INPUTS
+     ========================= */
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: var(--primary);
+
+  /* =========================
+     📊 CHARTS (keep contrast)
+     ========================= */
+
+  --chart-1: oklch(0.55 0.22 250);
+  --chart-2: oklch(0.7 0.17 160);
+  --chart-3: oklch(0.75 0.18 80);
+  --chart-4: oklch(0.6 0.25 300);
+  --chart-5: oklch(0.6 0.24 20);
+
+  /* =========================
+     🧭 SIDEBAR
+     ========================= */
+
+  --sidebar: oklch(0.2 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: oklch(0.1 0 0);
+
+  --sidebar-accent: oklch(0.28 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: var(--primary);
 }
 
 @layer base {
@@ -246,8 +262,13 @@
 
 /** Landing page */
 
+.landing-page > div:not(:first-child) {
+  padding-block: 40px;
+}
+
 .landing-page > div:nth-child(even) {
-  padding-block: 80px;
+  /* padding-block: 80px; */
+  background-color: var(--surface-section);
 }
 
 div.features-wrapper > div.feature:nth-child(even) {
@@ -272,7 +293,7 @@ div.features-wrapper > div.feature:nth-child(even) {
   display: grid;
   border: 4px solid #0000;
   border-radius: 50%;
-  border-right-color: var(--brand);
+  border-right-color: var(--primary);
   animation: l15 1s infinite linear;
 }
 .loader::before,
