@@ -84,7 +84,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="text-muted-foreground flex flex-col items-center justify-between gap-4 text-sm md:flex-row">
-          <p>© 2024 Learnify. Editorial Authority in Education.</p>
+          <p>© 2026 Learnify. Editorial Authority in Education.</p>
 
           <div className="flex gap-6">
             <Link href="#">Privacy Policy</Link>

@@ -51,11 +51,7 @@ export default function RootLayout({
         >
           <Providers>
             <PrefetchCrossZoneLinksProvider>
-              <Header />
-              <main className="bg-background flex min-h-full grow flex-col">
-                {children}
-              </main>
-              <Footer />
+              {children}
             </PrefetchCrossZoneLinksProvider>
             <PrefetchCrossZoneLinks />
           </Providers>
