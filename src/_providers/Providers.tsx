@@ -1,5 +1,7 @@
 "use client";
 import { queryClient } from "@/_services/TanstackQuery_Client";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -20,7 +22,13 @@ function Providers({ children }: ProvidersProps) {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
 
-      {children}
+      <ClerkProvider
+        appearance={{
+          theme: [dark],
+        }}
+      >
+        {children}
+      </ClerkProvider>
     </QueryClientProvider>
   );
 }

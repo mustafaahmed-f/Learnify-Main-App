@@ -1,3 +1,5 @@
+import { AppName } from "@/_utils/constants/AppName";
+
 function LearnifyLogo() {
   return (
     <div className="relative">
@@ -16,7 +18,7 @@ function LearnifyLogo() {
           />
         </svg>
       </div>
-      <p className="relative z-10 my-auto pl-5 text-[#5B5B5B]">Learnify</p>
+      <p className="relative z-10 my-auto pl-5 text-[#5B5B5B]">{AppName}</p>
     </div>
   );
 }

@@ -47,7 +47,7 @@ export default function RootLayout({
     >
       <html lang="en">
         <body
-          className={`${manrope.variable} ${inter.variable} flex min-h-screen flex-col font-sans antialiased`}
+          className={`${manrope.variable} ${inter.variable} flex h-screen min-h-screen flex-col font-sans antialiased`}
         >
           <Providers>
             <PrefetchCrossZoneLinksProvider>

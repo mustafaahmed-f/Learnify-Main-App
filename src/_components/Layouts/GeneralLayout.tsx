@@ -9,9 +9,7 @@ function GeneralLayout({ children }: GeneralLayoutProps) {
   return (
     <>
       <Header />
-      <main className="bg-background flex min-h-full grow flex-col">
-        {children}
-      </main>
+      <main className="bg-background flex grow flex-col">{children}</main>
       <Footer />
     </>
   );

@@ -93,9 +93,12 @@ function Header({}: HeaderProps) {
             </SignedIn>
 
             <SignedOut>
-              <button className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition">
+              <Link
+                href="/auth/login"
+                className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition"
+              >
                 Login
-              </button>
+              </Link>
             </SignedOut>
           </div>
         </div>
@@ -151,9 +154,12 @@ function Header({}: HeaderProps) {
             </button>
           </SignedIn>
           <SignedOut>
-            <button className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition">
+            <Link
+              href="/auth/login"
+              className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition"
+            >
               Login
-            </button>
+            </Link>
           </SignedOut>
         </div>
       </nav>
