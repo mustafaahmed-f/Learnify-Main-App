@@ -1,7 +1,9 @@
+import { SignUp } from "@clerk/nextjs";
+
 interface SignUpPageProps {}
 
 function SignUpPage({}: SignUpPageProps) {
-  return <div></div>;
+  return <SignUp />;
 }
 
 export default SignUpPage;

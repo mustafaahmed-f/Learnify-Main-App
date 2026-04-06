@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { imagesURL } from "../utils/ImagesURL";
 import { AppName } from "@/_utils/constants/AppName";
 import Link from "next/link";
+import LearnifyLogo from "@/_components/general/LearnifyLogo";
 
 function ImageDisplay() {
   const pathname = usePathname();
@@ -21,9 +22,7 @@ function ImageDisplay() {
       }}
     >
       <div className="bg-primary-900/95 absolute top-0 right-0 bottom-0 left-0 flex flex-col items-start justify-between p-10 text-white">
-        <Link href="/" className="text-3xl font-bold">
-          {AppName}
-        </Link>
+        <LearnifyLogo className="text-2xl font-bold text-white" />
         <div className="flex flex-col items-start gap-8">
           <div className="bg-accent rounded-full px-3 py-1 text-sm text-black uppercase">
             level up your career

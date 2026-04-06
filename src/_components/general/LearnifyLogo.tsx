@@ -1,8 +1,10 @@
 import { AppName } from "@/_utils/constants/AppName";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
-function LearnifyLogo() {
+function LearnifyLogo({ className }: { className?: string }) {
   return (
-    <div className="relative">
+    <Link href="/" className="relative">
       <div className="absolute top-0 bottom-0 left-0 -translate-y-1/6">
         <svg
           width="45"
@@ -18,8 +20,12 @@ function LearnifyLogo() {
           />
         </svg>
       </div>
-      <p className="relative z-10 my-auto pl-5 text-[#5B5B5B]">{AppName}</p>
-    </div>
+      <h1
+        className={cn("relative z-10 my-auto pl-5 text-[#5B5B5B]", className)}
+      >
+        {AppName}
+      </h1>
+    </Link>
   );
 }
 

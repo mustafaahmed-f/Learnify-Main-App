@@ -1,7 +1,9 @@
+import { SignIn } from "@clerk/nextjs";
+
 interface LoginPageProps {}
 
 function LoginPage({}: LoginPageProps) {
-  return <div></div>;
+  return <SignIn />;
 }
 
 export default LoginPage;

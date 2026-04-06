@@ -25,6 +25,11 @@ function Providers({ children }: ProvidersProps) {
       <ClerkProvider
         appearance={{
           theme: [dark],
+          captcha: {
+            theme: "dark",
+            size: "flexible",
+            language: "es-ES",
+          },
         }}
       >
         {children}
