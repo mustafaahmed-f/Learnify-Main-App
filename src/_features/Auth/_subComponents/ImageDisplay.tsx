@@ -1,11 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import LearnifyLogo from "@/_components/general/LearnifyLogo";
 import { usePathname } from "next/navigation";
 import { imagesURL } from "../utils/ImagesURL";
-import { AppName } from "@/_utils/constants/AppName";
-import Link from "next/link";
-import LearnifyLogo from "@/_components/general/LearnifyLogo";
 
 function ImageDisplay() {
   const pathname = usePathname();
