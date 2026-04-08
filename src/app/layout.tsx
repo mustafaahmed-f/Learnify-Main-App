@@ -1,8 +1,4 @@
-import Footer from "@/_components/Footer/Footer";
-import Header from "@/_components/Header/Header";
 import Providers from "@/_providers/Providers";
-import { ClerkProvider } from "@clerk/nextjs";
-import { shadcn } from "@clerk/themes";
 import {
   PrefetchCrossZoneLinks,
   PrefetchCrossZoneLinksProvider,
@@ -10,6 +6,8 @@ import {
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
+import SpinnerComponent from "@/_components/general/SpinnerComponent";
 
 // export const fetchCache = "default-cache";
 
@@ -41,22 +39,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider
-      appearance={{ baseTheme: shadcn }}
-      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
-    >
-      <html lang="en">
-        <body
-          className={`${manrope.variable} ${inter.variable} flex h-screen min-h-screen flex-col font-sans antialiased`}
-        >
+    <html lang="en">
+      <body
+        className={`${manrope.variable} ${inter.variable} flex h-screen min-h-screen flex-col font-sans antialiased`}
+      >
+        <Suspense fallback={<SpinnerComponent />}>
           <Providers>
             <PrefetchCrossZoneLinksProvider>
               {children}
             </PrefetchCrossZoneLinksProvider>
             <PrefetchCrossZoneLinks />
           </Providers>
-        </body>
-      </html>
-    </ClerkProvider>
+        </Suspense>
+      </body>
+    </html>
   );
 }

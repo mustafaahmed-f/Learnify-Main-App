@@ -1,7 +1,5 @@
 import AuthToggle from "@/_features/Auth/_subComponents/AuthToggle";
 import ImageDisplay from "@/_features/Auth/_subComponents/ImageDisplay";
-import { AppName } from "@/_utils/constants/AppName";
-import Link from "next/link";
 import LearnifyLogo from "../general/LearnifyLogo";
 
 interface AuthLayoutProps {

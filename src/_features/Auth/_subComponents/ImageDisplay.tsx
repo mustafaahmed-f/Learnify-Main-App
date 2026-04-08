@@ -2,7 +2,6 @@
 
 import LearnifyLogo from "@/_components/general/LearnifyLogo";
 import { usePathname } from "next/navigation";
-import { imagesURL } from "../utils/ImagesURL";
 
 function ImageDisplay() {
   const pathname = usePathname();
@@ -12,7 +11,7 @@ function ImageDisplay() {
     <section
       className="relative hidden h-full w-full grow md:block"
       style={{
-        backgroundImage: `url(${imagesURL[lastSegment as keyof typeof imagesURL]})`,
+        backgroundImage: `url(https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop)`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",

@@ -1,6 +1,6 @@
 "use client";
 
-import { SignedIn, SignedOut, UserProfile } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { GraduationCap } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -24,9 +24,9 @@ function Header({}: HeaderProps) {
   return (
     <header>
       <nav className="bg-background flex items-center justify-between border-b border-gray-300 px-6 py-4 transition-all md:px-16 lg:px-24 xl:px-32">
-        <Link href="/" className="text-2xl font-bold">
+        <div className="text-2xl font-bold">
           <LearnifyLogo />
-        </Link>
+        </div>
 
         <Button
           aria-label="Menu"
@@ -85,11 +85,8 @@ function Header({}: HeaderProps) {
                     3
                   </button>
                 </div>
-                <UserProfile />
+                <UserButton />
               </div>
-              <button className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition">
-                Logout
-              </button>
             </SignedIn>
 
             <SignedOut>
@@ -148,10 +145,7 @@ function Header({}: HeaderProps) {
                 3
               </button>
             </div>
-            <UserProfile />
-            <button className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition">
-              Logout
-            </button>
+            <UserButton />
           </SignedIn>
           <SignedOut>
             <Link

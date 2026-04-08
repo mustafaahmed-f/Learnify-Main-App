@@ -1,9 +1,7 @@
 import AuthSkeleton from "@/_features/Auth/_subComponents/AuthSkeleton";
 import { SignUp } from "@clerk/nextjs";
 
-interface SignUpPageProps {}
-
-function SignUpPage({}: SignUpPageProps) {
+async function SignUpPage() {
   return <SignUp fallback={<AuthSkeleton />} />;
 }
 
