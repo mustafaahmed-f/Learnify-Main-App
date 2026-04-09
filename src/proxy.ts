@@ -8,10 +8,10 @@ const isNonAuthRoute = createRouteMatcher(["/auth(.*)", "/auth(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) {
+    //* add the desired pathname to a search param called redirect_url so user is redirected to it after sign in
     await auth.protect();
   }
   if ((await auth()).isAuthenticated && isNonAuthRoute(req)) {
-    console.log("Here");
     return NextResponse.redirect(new URL("/", req.url));
   }
 

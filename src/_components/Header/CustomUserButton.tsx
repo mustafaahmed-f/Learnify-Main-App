@@ -1,28 +1,33 @@
 "use client";
-import { UserButton } from "@clerk/nextjs";
+import { userRoles } from "@/_utils/constants/userRoles";
+import { UserButton, useUser } from "@clerk/nextjs";
 import { GraduationCap, LayoutDashboard, Radio } from "lucide-react";
-import ClerkLoader from "../general/ClerkLoader";
 
 function CustomUserButton() {
-  //todo : get user's role
-  const isAdmin = false;
-  const isInstructor = false;
+  const { user } = useUser();
+  const Role = user?.publicMetadata.role;
+  const isAdmin = Role === userRoles.admin;
+  const isInstructor = Role === userRoles.instructor;
 
   return (
     <UserButton>
       <UserButton.MenuItems>
         {/* //* For admins */}
-        <UserButton.Link
-          href="#"
-          label="Admin Dashboard"
-          labelIcon={<LayoutDashboard size={22} />}
-        />
+        {isAdmin && (
+          <UserButton.Link
+            href="#"
+            label="Admin Dashboard"
+            labelIcon={<LayoutDashboard size={22} />}
+          />
+        )}
         {/* //* For instructors */}
-        <UserButton.Link
-          href="#"
-          label="Courses Dashboard"
-          labelIcon={<GraduationCap size={22} />}
-        />
+        {isInstructor && (
+          <UserButton.Link
+            href="#"
+            label="Courses Dashboard"
+            labelIcon={<GraduationCap size={22} />}
+          />
+        )}
         {/* //* For all users */}
         <UserButton.Link label="Live Classes" labelIcon={<Radio />} href="#" />
       </UserButton.MenuItems>
