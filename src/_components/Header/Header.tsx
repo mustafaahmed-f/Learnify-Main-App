@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import LearnifyLogo from "../general/LearnifyLogo";
 import { Button } from "../ui/button";
 import { HeaderElements } from "./HeaderElements";
+import CustomUserButton from "./CustomUserButton";
 
 interface HeaderProps {}
 
@@ -85,7 +86,7 @@ function Header({}: HeaderProps) {
                     3
                   </button>
                 </div>
-                <UserButton />
+                <CustomUserButton />
               </div>
             </SignedIn>
 
@@ -145,7 +146,7 @@ function Header({}: HeaderProps) {
                 3
               </button>
             </div>
-            <UserButton />
+            <CustomUserButton />
           </SignedIn>
           <SignedOut>
             <Link
