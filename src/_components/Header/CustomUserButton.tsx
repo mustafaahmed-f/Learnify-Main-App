@@ -1,6 +1,7 @@
 "use client";
 import { UserButton } from "@clerk/nextjs";
 import { GraduationCap, LayoutDashboard, Radio } from "lucide-react";
+import ClerkLoader from "../general/ClerkLoader";
 
 function CustomUserButton() {
   //todo : get user's role

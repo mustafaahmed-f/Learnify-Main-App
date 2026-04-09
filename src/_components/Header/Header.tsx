@@ -1,18 +1,20 @@
 "use client";
 
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, useAuth } from "@clerk/nextjs";
 import { GraduationCap } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import LearnifyLogo from "../general/LearnifyLogo";
 import { Button } from "../ui/button";
-import { HeaderElements } from "./HeaderElements";
 import CustomUserButton from "./CustomUserButton";
+import { HeaderElements } from "./HeaderElements";
+import ClerkLoader from "../general/ClerkLoader";
 
 interface HeaderProps {}
 
 function Header({}: HeaderProps) {
   const { 0: open, 1: setOpen } = useState(false);
+  const { isLoaded } = useAuth();
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -55,6 +57,7 @@ function Header({}: HeaderProps) {
           </svg>
         </Button>
 
+        {/* //* Mobile Menu */}
         <div
           id="mobile-menu"
           className={`fixed top-0 right-0 left-0 z-50 transform bg-white px-4 py-4 md:hidden ${open ? "translate-y-0" : "-translate-y-full"} w-full flex-col items-start gap-2 bg-white px-5 py-4 text-sm shadow-md transition-transform duration-700 ease-in-out`}
@@ -78,26 +81,32 @@ function Header({}: HeaderProps) {
           ))}
 
           <div className="mt-4">
-            <SignedIn>
-              <div className="my-1 flex items-center justify-start gap-8">
-                <div className="relative cursor-pointer">
-                  <GraduationCap />
-                  <button className="absolute -top-2 -right-3 h-[18px] w-[18px] rounded-full bg-indigo-500 text-xs text-white">
-                    3
-                  </button>
-                </div>
-                <CustomUserButton />
-              </div>
-            </SignedIn>
+            {isLoaded ? (
+              <>
+                <SignedIn>
+                  <div className="my-1 flex items-center justify-start gap-8">
+                    <div className="relative cursor-pointer">
+                      <GraduationCap />
+                      <button className="absolute -top-2 -right-3 h-[18px] w-[18px] rounded-full bg-indigo-500 text-xs text-white">
+                        3
+                      </button>
+                    </div>
+                    <CustomUserButton />
+                  </div>
+                </SignedIn>
 
-            <SignedOut>
-              <Link
-                href="/auth/login"
-                className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition"
-              >
-                Login
-              </Link>
-            </SignedOut>
+                <SignedOut>
+                  <Link
+                    href="/auth/login"
+                    className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition"
+                  >
+                    Login
+                  </Link>
+                </SignedOut>
+              </>
+            ) : (
+              <ClerkLoader />
+            )}
           </div>
         </div>
 
@@ -139,23 +148,29 @@ function Header({}: HeaderProps) {
             </svg>
           </div>
 
-          <SignedIn>
-            <div className="relative cursor-pointer">
-              <GraduationCap />
-              <button className="absolute -top-2 -right-3 h-[18px] w-[18px] rounded-full bg-indigo-500 text-xs text-white">
-                3
-              </button>
-            </div>
-            <CustomUserButton />
-          </SignedIn>
-          <SignedOut>
-            <Link
-              href="/auth/login"
-              className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition"
-            >
-              Login
-            </Link>
-          </SignedOut>
+          {isLoaded ? (
+            <>
+              <SignedIn>
+                <div className="relative cursor-pointer">
+                  <GraduationCap />
+                  <button className="absolute -top-2 -right-3 h-[18px] w-[18px] rounded-full bg-indigo-500 text-xs text-white">
+                    3
+                  </button>
+                </div>
+                <CustomUserButton />
+              </SignedIn>
+              <SignedOut>
+                <Link
+                  href="/auth/login"
+                  className="bg-primary hover:bg-primary/80 cursor-pointer rounded-full px-8 py-2 text-white transition"
+                >
+                  Login
+                </Link>
+              </SignedOut>
+            </>
+          ) : (
+            <ClerkLoader />
+          )}
         </div>
       </nav>
     </header>
