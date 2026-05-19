@@ -1,12 +1,9 @@
 import { Input } from "../ui/input";
-import { filterType } from "./types/filterType";
+import { useSearchContext } from "./context/SearchContext";
 import { filterValues } from "./utils/filterValues";
 
-interface SearchInputProps {
-  filter: filterType;
-}
-
-function SearchInput({ filter }: SearchInputProps) {
+function SearchInput() {
+  const { filter } = useSearchContext();
   const allLabels = filterValues.map((filter) => filter.label);
   const currentLabel =
     filter.value === "all" ? allLabels.join(", ") : filter.label;

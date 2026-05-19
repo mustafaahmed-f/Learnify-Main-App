@@ -9,7 +9,7 @@ function SearchComponent() {
   //todo: We will use tanstack query for getting search results + debounce to avoid multiple requests in short time
 
   return (
-    <div className="order-3 mt-4 flex w-full basis-full items-center gap-2 rounded-md border border-gray-300 px-3 text-sm lg:order-none lg:mx-6 lg:mt-0 lg:w-fit lg:grow lg:basis-auto">
+    <div className="order-3 flex w-full basis-full items-center gap-2 rounded-md border border-gray-300 px-3 text-sm max-lg:mt-5 max-md:relative max-md:mt-8 lg:order-none lg:mx-6 lg:mt-0 lg:w-fit lg:grow lg:basis-auto">
       <svg
         width="16"
         height="16"
@@ -33,8 +33,8 @@ function SearchComponent() {
           strokeLinejoin="round"
         />
       </svg>
-      <SearchInput filter={filter} />
-      <FilterationBtn filter={filter} setFilter={setFilter} />
+      <SearchInput />
+      <FilterationBtn />
     </div>
   );
 }
