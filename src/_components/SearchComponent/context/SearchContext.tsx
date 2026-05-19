@@ -13,6 +13,8 @@ type searchContextType = {
   setFilter: Dispatch<SetStateAction<filterType>>;
   searchValue: string;
   setSearchValue: Dispatch<SetStateAction<string>>;
+  isDropDownOpen: boolean;
+  setIsDropDownOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 const initialValues: searchContextType = {
@@ -20,6 +22,8 @@ const initialValues: searchContextType = {
   setFilter: () => {},
   searchValue: "",
   setSearchValue: () => {},
+  isDropDownOpen: false,
+  setIsDropDownOpen: () => {},
 };
 
 const SearchContext = createContext<searchContextType>(initialValues);
@@ -27,10 +31,18 @@ const SearchContext = createContext<searchContextType>(initialValues);
 export function SearchProvider({ children }: { children: React.ReactNode }) {
   const { 0: filter, 1: setFilter } = useState<filterType>(filterValues[2]);
   const { 0: searchValue, 1: setSearchValue } = useState<string>("");
+  const { 0: isDropDownOpen, 1: setIsDropDownOpen } = useState(false);
 
   return (
     <SearchContext.Provider
-      value={{ filter, setFilter, searchValue, setSearchValue }}
+      value={{
+        filter,
+        setFilter,
+        searchValue,
+        setSearchValue,
+        isDropDownOpen,
+        setIsDropDownOpen,
+      }}
     >
       {children}
     </SearchContext.Provider>

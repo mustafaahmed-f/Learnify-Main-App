@@ -1,15 +1,39 @@
 "use client";
 
+import { XIcon } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import FilterationBtn from "./FilterationBtn";
 import SearchInput from "./SearchInput";
 import { useSearchContext } from "./context/SearchContext";
+import DropDown from "./DropDown";
 
 function SearchComponent() {
-  const { filter, setFilter } = useSearchContext();
+  const { searchValue, setSearchValue, isDropDownOpen, setIsDropDownOpen } =
+    useSearchContext();
+
+  const searchRef = useRef<HTMLDivElement>(null);
   //todo: We will use tanstack query for getting search results + debounce to avoid multiple requests in short time
 
+  useEffect(() => {
+    function handlePointerDown(event: PointerEvent) {
+      if (!searchRef.current?.contains(event.target as Node)) {
+        setIsDropDownOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, []);
+
   return (
-    <div className="order-3 flex w-full basis-full items-center gap-2 rounded-md border border-gray-300 px-3 text-sm max-lg:mt-5 max-md:relative max-md:mt-8 lg:order-none lg:mx-6 lg:mt-0 lg:w-fit lg:grow lg:basis-auto">
+    <div
+      ref={searchRef}
+      onFocus={() => setIsDropDownOpen(true)}
+      className="relative order-3 flex w-full basis-full items-center gap-2 rounded-md border border-gray-300 px-3 text-sm max-lg:mt-5 max-md:mt-8 lg:order-none lg:mx-6 lg:mt-0 lg:w-fit lg:grow lg:basis-auto"
+    >
       <svg
         width="16"
         height="16"
@@ -34,6 +58,17 @@ function SearchComponent() {
         />
       </svg>
       <SearchInput />
+      {searchValue && (
+        <XIcon
+          size={18}
+          onClick={() => {
+            setSearchValue("");
+            setIsDropDownOpen(false);
+          }}
+          className="hover:text-primary-600 cursor-pointer"
+        />
+      )}
+      {searchValue && isDropDownOpen && <DropDown />}
       <FilterationBtn />
     </div>
   );
