@@ -9,9 +9,4 @@ export const HeaderElements = [
     label: "Blog",
     href: "#",
   },
-  {
-    id: 3,
-    label: "About us",
-    href: "#",
-  },
 ];

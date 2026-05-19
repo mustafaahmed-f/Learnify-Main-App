@@ -9,10 +9,10 @@ import { Button } from "../ui/button";
 import CustomUserButton from "./CustomUserButton";
 import { HeaderElements } from "./HeaderElements";
 import ClerkLoader from "../general/ClerkLoader";
+import SearchComponent from "../SearchComponent/SearchComponent";
+import { SearchProvider } from "../SearchComponent/context/SearchContext";
 
-interface HeaderProps {}
-
-function Header({}: HeaderProps) {
+function Header() {
   const { 0: open, 1: setOpen } = useState(false);
   const { isLoaded } = useAuth();
 
@@ -26,11 +26,12 @@ function Header({}: HeaderProps) {
 
   return (
     <header>
-      <nav className="bg-background flex items-center justify-between border-b border-gray-300 px-6 py-4 transition-all md:px-16 lg:px-24 xl:px-32">
+      <nav className="bg-background flex w-full flex-wrap items-center justify-between border-b border-gray-300 px-6 py-4 transition-all md:px-16 lg:px-24 xl:px-32">
         <div className="text-2xl font-bold">
           <LearnifyLogo />
         </div>
 
+        {/* //* Mobile Menu Toggle Button */}
         <Button
           aria-label="Menu"
           id="menu-toggle"
@@ -62,7 +63,7 @@ function Header({}: HeaderProps) {
           id="mobile-menu"
           className={`fixed top-0 right-0 left-0 z-50 transform bg-white px-4 py-4 md:hidden ${open ? "translate-y-0" : "-translate-y-full"} w-full flex-col items-start gap-2 bg-white px-5 py-4 text-sm shadow-md transition-transform duration-700 ease-in-out`}
         >
-          <div className="mb-5 flex w-full items-center justify-end">
+          <div className="flex w-full items-center justify-end">
             <Button
               className="cursor-pointer bg-transparent text-2xl font-bold text-black hover:bg-transparent"
               onClick={() => setOpen(false)}
@@ -80,7 +81,7 @@ function Header({}: HeaderProps) {
             </Link>
           ))}
 
-          <div className="mt-4">
+          <div className="mt-6">
             {isLoaded ? (
               <>
                 <SignedIn>
@@ -110,43 +111,19 @@ function Header({}: HeaderProps) {
           </div>
         </div>
 
-        <div className="hidden items-center gap-8 md:flex">
+        {/* //===============================================================================// */}
+        {/* //===============================================================================// */}
+
+        {/* //* Desktop Menu */}
+        <SearchProvider>
+          <SearchComponent />
+        </SearchProvider>
+        <div className="hidden items-center gap-8 md:flex md:grow md:justify-end lg:grow-0 lg:justify-center">
           {HeaderElements.map((el) => (
             <Link key={el.id} href={el.href} className="hover:text-primary">
               {el.label}
             </Link>
           ))}
-
-          <div className="hidden items-center gap-2 rounded-full border border-gray-300 px-3 text-sm lg:flex">
-            <input
-              className="w-full bg-transparent py-1.5 placeholder-gray-500 outline-none"
-              type="text"
-              placeholder="Search courses"
-            />
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10.836 10.615 15 14.695"
-                stroke="#7A7B7D"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                clipRule="evenodd"
-                d="M9.141 11.738c2.729-1.136 4.001-4.224 2.841-6.898S7.67.921 4.942 2.057C2.211 3.193.94 6.281 2.1 8.955s4.312 3.92 7.041 2.783"
-                stroke="#7A7B7D"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
 
           {isLoaded ? (
             <>
