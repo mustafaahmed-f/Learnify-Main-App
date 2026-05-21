@@ -5,6 +5,6 @@ export const filtrationColors: {
 } = {
   all: "#23BDEE",
   courses: "#10B981",
-  liveClasses: "#F97316",
   instructors: "#8B5CF6",
+  "live-classes": "#F97316",
 };

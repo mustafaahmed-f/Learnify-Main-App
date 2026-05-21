@@ -14,7 +14,7 @@ function DropDown() {
   const shouldShowCourses =
     filter.value === "all" || filter.value === "courses";
   const shouldShowLiveClasses =
-    filter.value === "all" || filter.value === "liveClasses";
+    filter.value === "all" || filter.value === "live-classes";
   const shouldShowInstructors =
     filter.value === "all" || filter.value === "instructors";
 
