@@ -29,7 +29,7 @@ const initialValues: searchContextType = {
 const SearchContext = createContext<searchContextType>(initialValues);
 
 export function SearchProvider({ children }: { children: React.ReactNode }) {
-  const { 0: filter, 1: setFilter } = useState<filterType>(filterValues[2]);
+  const { 0: filter, 1: setFilter } = useState<filterType>(filterValues[0]);
   const { 0: searchValue, 1: setSearchValue } = useState<string>("");
   const { 0: isDropDownOpen, 1: setIsDropDownOpen } = useState(false);
 

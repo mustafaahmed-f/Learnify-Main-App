@@ -75,20 +75,3 @@ function SearchComponent() {
 }
 
 export default SearchComponent;
-
-/*
-* 📚 Course Result : 
-[Thumbnail] React Complete Guide
-            Ahmed Hassan
-            ⭐ 4.9
-
-* 📅 Live Class Result
-[Live Badge] React Workshop Tonight
-             Today • 8:00 PM
-
-* 👨‍🏫 Instructor Result
-[Avatar] Ahmed Hassan
-         12 Courses • 2,000 Students • ⭐ 4.8
-         Tags - React, JavaScript
-
-*/

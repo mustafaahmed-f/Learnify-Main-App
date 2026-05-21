@@ -27,6 +27,7 @@ function FiltrationDialog({}: FiltrationDialogProps) {
               <div
                 className="flex cursor-pointer items-center gap-3"
                 onClick={() => setFilter(filter)}
+                key={filter.value}
               >
                 <RadioGroupItem value={filter.value} id={filter.value} />
                 <Label htmlFor="r1">{filter.label}</Label>

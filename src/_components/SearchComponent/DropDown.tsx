@@ -10,8 +10,9 @@ import {
 } from "./utils/mockSearchResults";
 
 function DropDown() {
-  const { filter, searchValue } = useSearchContext();
-  const shouldShowCourses = filter.value === "all" || filter.value === "courses";
+  const { filter, searchValue, setIsDropDownOpen } = useSearchContext();
+  const shouldShowCourses =
+    filter.value === "all" || filter.value === "courses";
   const shouldShowLiveClasses =
     filter.value === "all" || filter.value === "liveClasses";
   const shouldShowInstructors =
@@ -76,6 +77,7 @@ function DropDown() {
       <div className="bg-gray-50 px-4 py-3">
         <Link
           href="#"
+          onClick={() => setIsDropDownOpen(false)}
           className="block text-center text-sm font-semibold text-sky-700 transition hover:text-sky-800"
         >
           Show all results

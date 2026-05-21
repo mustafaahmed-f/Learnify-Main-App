@@ -1,6 +1,6 @@
+import LearnifyLogo from "@/_components/general/LearnifyLogo";
 import AuthToggle from "@/_features/Auth/_subComponents/AuthToggle";
 import ImageDisplay from "@/_features/Auth/_subComponents/ImageDisplay";
-import LearnifyLogo from "../general/LearnifyLogo";
 
 interface AuthLayoutProps {
   children: React.ReactNode;
