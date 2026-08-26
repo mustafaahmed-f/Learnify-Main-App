@@ -14,7 +14,6 @@ interface pageProps {
 }
 
 async function page({ searchParams, params }: pageProps) {
-  console.log("PAGE START");
   const validTypes = searchResultsTabs.map((filter) => filter.value);
   const type = (await searchParams).type ?? "all";
   const isValidType = validTypes.includes(type as SearchResultType);
